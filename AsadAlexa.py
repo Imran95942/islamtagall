@@ -35,7 +35,7 @@ spam_chats = []
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
-    return await event.respond("__This command can be use in groups and channels!__")
+    return await event.respond("*Эту команду можно использовать в группах и каналах!**")
   
   is_admin = False
   try:
@@ -57,7 +57,7 @@ async def mentionall(event):
     ):
       is_admin = True
   if not is_admin:
-    return await event.respond("__Only admins can mention all!__")
+    return await event.respond("Недостаточно прав!__")
   
   if event.pattern_match.group(1) and event.is_reply:
     return await event.respond("__Give me one argument!__")
@@ -103,7 +103,7 @@ async def cancel_spam(event):
       spam_chats.remove(event.chat_id)
     except:
       pass
-    return await event.respond('__Stopped.__')
+    return await event.respond('Готово')
 
 print(">> ASAD ALEXA WORKING <<")
 client.run_until_disconnected()
